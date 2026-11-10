@@ -107,12 +107,12 @@
     }
   </style>
 </head>
-<body class="flex flex-col items-center justify-between font-sans text-slate-800 p-2 sm:p-4">
+<body class="flex flex-col items-center justify-start gap-2 sm:gap-3 font-sans text-slate-800 p-2 sm:p-4">
 
   <!-- ==================================================================== -->
   <!-- 글로벌 오디오 & 점수 상단 헤더 바 -->
   <!-- ==================================================================== -->
-  <header class="w-full max-w-4xl bg-white/90 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-glass border-2 border-white/60 flex items-center justify-between mb-3 z-30">
+  <header class="w-full max-w-4xl bg-white/90 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-glass border-2 border-white/60 flex items-center justify-between z-30">
     <div class="flex items-center gap-2">
       <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white text-xl shadow-sm">
         🛟
@@ -2882,6 +2882,23 @@
       }
 
       const btnWashVestNext = document.getElementById('btnWashVestNext');
+      if (btnWashVestNext) {
+        btnWashVestNext.onclick = () => {
+          SFX.click();
+          gotoScreen('screenPose');
+          initPoseStage();
+        };
+      }
+
+      const btnPoseNext = document.getElementById('btnPoseNext');
+      if (btnPoseNext) {
+        btnPoseNext.onclick = () => {
+          SFX.click();
+          gotoScreen('screenSlide');
+          initSlideStage();
+        };
+      }
+
       // 5. 워터슬라이드 컨트롤러 바인딩 (터치 & 키보드 & 태블릿 포인터 안전 처리)
       const bSLeft = document.getElementById('btnSlideLeft');
       const bSRight = document.getElementById('btnSlideRight');
